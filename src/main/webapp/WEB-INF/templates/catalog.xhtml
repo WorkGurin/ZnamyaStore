@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view>
+        <h:head>
+            <title><ui:insert name="title"/></title>  
+
+        </h:head>
+        <h:body>
+
+            <f:facet name="last">
+                <h:outputScript library="js" name="znamya.js" target="head"/>
+                <h:outputScript library="js" name="jquery.1.7.1.min.js" target="head"/>
+                <h:outputStylesheet library="css" name="main.css" />
+                <h:outputStylesheet library="css" name="dialog.css" />
+            </f:facet>
+
+            <div id="wrap">
+
+                <ui:include src="/WEB-INF/templates/header.xhtml"/>
+                <ui:include src="/WEB-INF/templates/welcome.xhtml"/>
+                <ui:include src="/WEB-INF/templates/genders.xhtml"/>
+
+                <div class="content">
+
+                    <ui:include src="/WEB-INF/templates/clothes.xhtml"/>
+
+                    <div class="right-content">
+
+                        <ui:insert name="models_count"/>
+
+                        <ui:insert name="content"/>
+
+                        <div class="clear"></div>
+
+                    </div>
+                </div>
+
+                <div class="footer_blank"></div>
+                <ui:include src="/WEB-INF/templates/footer.xhtml"/>
+            </div>
+
+
+        </h:body>
+    </f:view>
+</html>
+

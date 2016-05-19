@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="biz.znamya.entities.Model" table="model" schema="znamyadb">
+        <id name="id" type="java.lang.Long">
+            <column name="id" sql-type="bigint(20)"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one name="clothes" class="biz.znamya.entities.Clothes" lazy="false" fetch="join">
+            <column name="clothes_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="gender" class="biz.znamya.entities.Gender" lazy="false" fetch="join">
+            <column name="gender_id" not-null="true"/>
+        </many-to-one>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="image">
+            <column name="image" sql-type="longblob" not-null="true"/>
+        </property>
+        <property name="rating">
+            <column name="rating" sql-type="int(5)" not-null="true"/>
+        </property>
+        <property name="voteCount">
+            <column name="vote_count" sql-type="bigint(20)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Facelet Title</title>
+
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div class="top_header" id="home">
+
+                <div class="logo">
+                    <a href="#">
+                        <h:graphicImage name="images/ru/logo.png"/>
+                    </a>
+                </div>
+                <div class="header_allline">
+                    <div class="header_topline">
+                        <div class="language">
+                            <ui:include src="/WEB-INF/templates/locales.xhtml"/>
+                        </div>
+                        <div class="aut">
+                            <p>username</p>
+                            <h:form>
+                                <h:commandLink value="${msg.exit}"/>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class="header_bottomline">
+                        <ui:include src="/WEB-INF/templates/search.xhtml"/>
+                        <div class="header_menu">
+
+                            <h:form>
+                                <ul>
+                                    <li><a href="#home">:. #{msg.home.toUpperCase()}</a></li>
+                                    <li><a href="#">:. #{msg.about.toUpperCase()}</a></li>
+                                    <li><a href="#collection">:. #{msg.collections.toUpperCase()}</a></li>
+                                    <li><a href="#">:. #{msg.contacts.toUpperCase()}</a></li>
+                                </ul>
+                            </h:form>
+
+                        </div>
+                    </div>
+                    <div class="triangle_block">
+                        <h:graphicImage name="images/snape_triangle.png"/>
+                    </div>
+                </div>
+            </div>
+
+        </ui:composition>
+    </h:body>
+</html>
+

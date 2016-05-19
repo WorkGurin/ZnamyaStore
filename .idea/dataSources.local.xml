@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - znamyadb@localhost" uuid="d9aee4f6-24a3-4ff0-9fc5-e3021eb88d09">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>znamyadb.*</schema-pattern>
+      <default-schemas>znamyadb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

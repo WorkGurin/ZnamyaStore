@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+<h:body>
+    <ui:composition>
+
+        <div class="collection-header" id="collection">
+            <div class="collection-left-block">
+                <div class="collection-name">#{msg.collections.toUpperCase()}</div>
+            </div>
+            <div class="collection-right-block">
+                <div class="collection-top-line"></div>
+                <div class="collection-triangle collection-triangle-left">
+                    <h:graphicImage name="images/snape_triangle.png"/>
+                </div>
+                <div class="collection-links">
+                    <ui:repeat value="${genderDAOImpl.genders}" var="g">
+                        <h:form id="collectionForm">
+                            <div class="collection-type">
+                                <p:commandButton value="${g.type.toUpperCase() } ${msg.collection.toUpperCase()}" action="searchByGender" actionListener="#{searchCriteria.setGender(g)}" styleClass="collection-type-button noborder-button">
+                                    <p:ajax execute="@form" render=":modelsForm:modelsList"/>
+                                </p:commandButton>
+                            </div>
+                        </h:form>
+                    </ui:repeat>
+                </div>
+                <div class="collection-triangle collection-triangle-right">
+                    <h:graphicImage name="images/snape_triangle.png" style="transform: rotate(180deg);"/>
+                </div>
+            </div>
+        </div>
+
+    </ui:composition>
+</h:body>
+</html>
+

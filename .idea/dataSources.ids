@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - znamyadb@localhost" uuid="d9aee4f6-24a3-4ff0-9fc5-e3021eb88d09">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.38 ( Revision: fe541c166cec739c74cc727c5da96c1028b4834a )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="znamyadb"/>
+      <table id="2" parent="1" name="clothes"/>
+      <table id="3" parent="1" name="gender"/>
+      <table id="4" parent="1" name="model"/>
+      <table id="5" parent="1" name="vote"/>
+      <column id="6" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="7" parent="2" name="view">
+        <mandatory>1</mandatory>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="10" parent="3" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <key id="11" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="12" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="13" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="14" parent="4" name="gender_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="15" parent="4" name="clothes_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="16" parent="4" name="image">
+        <data-type>longblob</data-type>
+      </column>
+      <column id="17" parent="4" name="rating">
+        <data-type>int(5)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="18" parent="4" name="vote_count">
+        <data-type>bigint(20)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="19" parent="4" name="fk_clothes_idx">
+        <columns>clothes_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="20" parent="4" name="fk_gender_idx">
+        <columns>gender_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="21" parent="4" name="id_UNIQUE">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="22" parent="4" name="id_UNIQUE">
+        <columns>id</columns>
+        <underlying-index>id_UNIQUE</underlying-index>
+      </key>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="24" parent="4" name="fk_clothes">
+        <columns>clothes_id</columns>
+        <ref-key>~.clothes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="25" parent="4" name="fk_gender">
+        <columns>gender_id</columns>
+        <ref-key>~.gender.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="26" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="27" parent="5" name="value">
+        <data-type>int(5)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="28" parent="5" name="model_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="29" parent="5" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="30" parent="5" name="fk_model_id_idx">
+        <columns>model_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="31" parent="5" name="fk_user_id_idx">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="32" parent="5" name="id_UNIQUE">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="33" parent="5" name="id_UNIQUE">
+        <columns>id</columns>
+        <underlying-index>id_UNIQUE</underlying-index>
+      </key>
+      <key id="34" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="35" parent="5" name="fk_model_id">
+        <columns>model_id</columns>
+        <ref-key>~.model.id_UNIQUE</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>

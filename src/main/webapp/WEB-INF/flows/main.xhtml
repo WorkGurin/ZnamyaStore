@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+        >
+
+<ui:composition template="/WEB-INF/templates/catalog.xhtml">
+
+    <ui:define name="title">
+        #{msg.index_title}
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h:form id="modelsForm">
+
+            <p:dataGrid rowIndexVar="rowIndex" columns="3" lazy="true" var="m" value="${znamyaFacade.models}"
+                        id="modelsList" styleClass="models_list" paginator="true" rows="4" paginatorPosition="bottom"
+                        rowsPerPageTemplate="6,12,24" paginatorTemplate="{RowsPerPageDropdown} {PageLinks}"
+                        paginatorAlwaysVisible="true" emptyMessage="">
+
+                <div class="item">
+
+                    <div class="image-info">
+
+                        <h:outputLink styleClass="content_link" value="#{request.contextPath}/#{m.name}"  target="_blank">
+                            <p:graphicImage value="/ShowImage?index=#{rowIndex}"/>
+                            <f:param name="id" value="#{m.id}"/>
+                        </h:outputLink>
+
+                    </div>
+
+                    <div class="info">
+                        <div class="model_name">
+                            <span>#{m.clothes}</span>
+                            <span>#{m.name}</span>
+                        </div>
+
+                        <p:rating id="rating" value="#{m.rating}" styleClass="rating" cancel="false" stars="5"/>
+
+                    </div>
+
+                </div>
+
+            </p:dataGrid>
+
+        </h:form>
+
+    </ui:define>
+
+    <ui:define name="models_count">
+
+        <div class="box-sh">
+
+            <h1><p:outputLabel id="modelsCount" value="#{msg.model_count}:  #{znamyaFacade.models.size()}" /></h1>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+
+</html>
